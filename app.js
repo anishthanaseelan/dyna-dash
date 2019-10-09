@@ -4,12 +4,21 @@ function drawSkaliton() {
     // 
     var htmltxt = ""
     layout.forEach(element => {
-        htmltxt += "<div class=\"chartBox\"><canvas id=\"" + element.id + "\" class=\"chart\"></canvas></div >"
+        if (element.type == "text") {
+            htmltxt += "<div class=\"chartBox\"><dev id=\"" + element.id + "\" class=\"textchart\"></div></div >"
+        } else {
+            htmltxt += "<div class=\"chartBox\"><canvas id=\"" + element.id + "\" class=\"chart\"></canvas></div >"
+        }
+
     });
     //    console.log(htmltxt)
     var dash = document.getElementById("dashboard").innerHTML = htmltxt
     layout.forEach(element => {
-        drawChart(element, finddata(element.id))
+        if (element.type == "text") {
+            drawText(element, finddata(element.id))
+        } else {
+            drawChart(element, finddata(element.id))
+        }
     });
 }
 function finddata(id) {
@@ -22,6 +31,12 @@ function finddata(id) {
         }
     });
     return data;
+}
+function drawText(layoutData, chartData) {
+    var ctx = document.getElementById(layoutData.id);
+    ctx.innerHTML = "<div class = \"textTitle\">" + layoutData.title + "</div><div class = \"textData\">" + chartData + " </div>";
+    ctx.parentNode.style.height = layoutData.height;
+    ctx.parentNode.style.width = layoutData.width;
 }
 
 function drawChart(layoutData, chartData) {
@@ -57,7 +72,7 @@ function drawChart(layoutData, chartData) {
         options: {
             maintainAspectRatio: false,
             legend: {
-                display: true,
+                display: false,
             },
             title: {
                 display: true,

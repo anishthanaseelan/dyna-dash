@@ -77,4 +77,12 @@ var reportData=[
             ],
         ]
     },
+    {
+        "id": "Report7",
+        "data": 12,
+    },
+    {
+        "id": "Report8",
+        "data": 0,
+    },
 ];

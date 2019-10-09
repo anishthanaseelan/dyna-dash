@@ -53,4 +53,22 @@ var layout= [
         "width": "400px",
         "height": "200px"
     },
+    {
+        "id": "Report7",
+        "title": "Report 7",
+        "labels": ['Red'
+        ],
+        "type": "text",
+        "width": "200px",
+        "height": "200px"
+    },
+    {
+        "id": "Report8",
+        "title": "Report 8",
+        "labels": ['Red'
+        ],
+        "type": "text",
+        "width": "200px",
+        "height": "200px"
+    },
 ];
