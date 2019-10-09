@@ -1,0 +1,14 @@
+.chartBox{
+    display: inline-flex;
+    background-color: #222020;
+    border: 1px solid rgb(0, 95, 0);
+    position: relative; 
+    height:20vh; 
+    width:30vw; 
+}
+.chart{
+    padding: 1%;
+}
+.body{
+    background-color: rgb(66, 66, 66);
+}
