@@ -3,8 +3,8 @@
     background-color: #222020;
     border: 1px solid rgb(0, 95, 0);
     position: relative; 
-    height:20vh; 
-    width:30vw; 
+    padding: 1%;
+    margin:1%;
 }
 .chart{
     padding: 1%;

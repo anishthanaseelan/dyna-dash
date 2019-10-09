@@ -1,0 +1,56 @@
+var layout= [
+    {
+        "id": "Report1",
+        "title": "Report 1",
+        "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+        ],
+        "type": "bar",
+        "width": "400px",
+        "height": "200px"
+    },
+    {
+        "id": "Report2",
+        "title": "Report 2",
+        "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+        ],
+        "type": "pie",
+        "width": "400px",
+        "height": "200px"
+    },
+    {
+        "id": "Report3",
+        "title": "Report 3",
+        "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+        ],
+        "type": "line",
+        "width": "400px",
+        "height": "200px"
+    },
+    {
+        "id": "Report4",
+        "title": "Report 4",
+        "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+        ],
+        "type": "radar",
+        "width": "400px",
+        "height": "200px"
+    },
+    {
+        "id": "Report5",
+        "title": "Report 5",
+        "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+        ],
+        "type": "doughnut",
+        "width": "400px",
+        "height": "200px"
+    },
+    {
+        "id": "Report6",
+        "title": "Report 6",
+        "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+        ],
+        "type": "polarArea",
+        "width": "400px",
+        "height": "200px"
+    },
+];

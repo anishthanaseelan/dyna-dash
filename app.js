@@ -1,21 +1,40 @@
 drawSkaliton()
 
-function drawSkaliton(){
-    drawChart ("myChart4" , "line")
-    drawChart ("myChart" , "bar")
-    drawChart ("myChart1", "pie")
-    drawChart ("myChart2", "doughnut")
-    drawChart ("myChart3", "polarArea")
+function drawSkaliton() {
+    // 
+    var htmltxt = ""
+    layout.forEach(element => {
+        htmltxt += "<div class=\"chartBox\"><canvas id=\"" + element.id + "\" class=\"chart\"></canvas></div >"
+    });
+    //    console.log(htmltxt)
+    var dash = document.getElementById("dashboard").innerHTML = htmltxt
+    layout.forEach(element => {
+        drawChart(element, finddata(element.id))
+    });
 }
-function drawChart(canid, type){
-    var ctx = document.getElementById(canid).getContext('2d');
+function finddata(id) {
+    var data;
+    reportData.forEach(element => {
+        if (element.id == id) {
+            console.log(element.data)
+            data = element.data
+            return
+        }
+    });
+    return data;
+}
+
+function drawChart(layoutData, chartData) {
+    var ctx = document.getElementById(layoutData.id).getContext('2d');
+    ctx.canvas.parentNode.style.height = layoutData.height;
+    ctx.canvas.parentNode.style.width = layoutData.width;
     var myChart = new Chart(ctx, {
-        type: type,
+        type: layoutData.type,
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: layoutData.labels,
             datasets: [{
-                label: '# of Votes',
-                data: [12, 1, 3, 5, 2, 3],
+                label: layoutData.title,
+                data: chartData[0],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -36,6 +55,14 @@ function drawChart(canid, type){
             }]
         },
         options: {
+            maintainAspectRatio: false,
+            legend: {
+                display: true,
+            },
+            title: {
+                display: true,
+                text: layoutData.title
+            },
             scales: {
                 yAxes: [{
                     ticks: {
@@ -47,3 +74,4 @@ function drawChart(canid, type){
     });
 
 }
+
