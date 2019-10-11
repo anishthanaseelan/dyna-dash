@@ -1,49 +1,61 @@
 .chartBox{
-    display: inline-flex;
+    display:block;
     background-color: #222020;
-    border: 1px solid rgb(0, 0, 0);
-    position: relative; 
-    padding: .5%;
-    margin:.5%;
+    border: 0px solid rgb(0, 0, 0);
+    position: absolute; 
+    padding: 5px;
+    margin: 5px;
     border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 .chartBox:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
   }
   
 .chart{
-    padding: 1%;
-}
-.textchart{
-    margin: 10%;
-}
-.textTitle{
-    margin: 5%;
-    padding: 20%;
-    width:100%;
-    font-size: 15px;
-    color: rgb(90, 90, 90);
-    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
 
 }
+.chartTitle{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: rgb(251, 251, 251);
+    border-width: 1px;
+    font-size: 100%;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: -1;
+}
 .textData{
-    margin: 20%;
-    padding: 20%;
-    font-size: 40px;
+    width:100%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vw;
     color: aliceblue;
     font-family: Arial, Helvetica, sans-serif;
 }
 .body{
+    color: rgb(173, 173, 173);
     background-color: rgb(66, 66, 66);
+    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .title{
-    font-size: 60px;
-    width:100%;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    margin-left: 30vw;
-    color: rgb(173, 173, 173);
+    display: flex;
+    position: absolute; 
+    font-size: 300%;
+    padding:10px;
+    margin:5px;
 
+    background-color: #222020;
+    align-items: center;
+    border-radius: 5px;
 }

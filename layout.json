@@ -1,74 +1,162 @@
-var layout= [
-    {
-        "id": "Report1",
-        "title": "Report 1",
-        "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
-        ],
-        "type": "bar",
-        "width": "400px",
-        "height": "200px"
+var properties= {
+    "settings": {
+        "grid": {
+            "maxx": 10,
+            "maxy": 10
+        }
     },
-    {
-        "id": "Report2",
-        "title": "Report 2",
-        "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
-        ],
-        "type": "pie",
-        "width": "400px",
-        "height": "200px"
-    },
-    {
-        "id": "Report3",
-        "title": "Report 3",
-        "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
-        ],
-        "type": "line",
-        "width": "400px",
-        "height": "200px"
-    },
-    {
-        "id": "Report4",
-        "title": "Report 4",
-        "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
-        ],
-        "type": "radar",
-        "width": "400px",
-        "height": "200px"
-    },
-    {
-        "id": "Report5",
-        "title": "Report 5",
-        "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
-        ],
-        "type": "doughnut",
-        "width": "400px",
-        "height": "200px"
-    },
-    {
-        "id": "Report6",
-        "title": "Report 6",
-        "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
-        ],
-        "type": "polarArea",
-        "width": "400px",
-        "height": "200px"
-    },
-    {
-        "id": "Report7",
-        "title": "Report 7",
-        "labels": ['Red'
-        ],
-        "type": "text",
-        "width": "200px",
-        "height": "200px"
-    },
-    {
-        "id": "Report8",
-        "title": "Report 8",
-        "labels": ['Red'
-        ],
-        "type": "text",
-        "width": "200px",
-        "height": "200px"
-    },
-];
+    "layout": [
+        {
+            "id": "title",
+            "title": "Dashboard",
+            "type": "title",
+            "width": 10,
+            "height": .5,
+            "x": 0,
+            "y": 0,
+        },
+        {
+            "id": "Report1",
+            "title": "Report 1",
+            "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+            ],
+            "type": "bar",
+            "width": 3,
+            "height": 2,
+            "x": 0,
+            "y": 0.5,
+        },
+        {
+            "id": "Report2",
+            "title": "Report 2",
+            "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+            ],
+            "type": "pie",
+            "width": 1,
+            "height": 1,
+            "x": 3,
+            "y": 0.5,
+        },
+        {
+            "id": "Report3",
+            "title": "Report 3",
+            "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+            ],
+            "type": "line",
+            "width": 2,
+            "height": 3,
+            "x": 0,
+            "y": 2.5,
+        },
+        {
+            "id": "Report4",
+            "title": "Report 4",
+            "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+            ],
+            "type": "radar",
+            "width": 2,
+            "height": 2,
+            "x": 2,
+            "y": 2.5,
+        },
+        {
+            "id": "Report5",
+            "title": "Report 5",
+            "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+            ],
+            "type": "doughnut",
+            "width": 3,
+            "height": 2,
+            "x": 5,
+            "y": 0.5,
+        },
+        {
+            "id": "Report6",
+            "title": "Report 6",
+            "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+            ],
+            "type": "polarArea",
+            "width": 2,
+            "height": 2,
+            "x": 8,
+            "y": 0.5,
+        },
+        {
+            "id": "Report7",
+            "title": "Report 7",
+            "labels": ['Red'
+            ],
+            "type": "text",
+            "width": 1,
+            "height": 1,
+            "x": 4,
+            "y": 0.5,
+        },
+        {
+            "id": "Report8",
+            "title": "Report 8",
+            "labels": ['Red'
+            ],
+            "type": "text",
+            "width": 2,
+            "height": 1,
+            "x": 3,
+            "y": 1.5,
+        },
+        {
+            "id": "Report9",
+            "title": "Report 9",
+            "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+            ],
+            "type": "bar",
+            "width": 2,
+            "height": 1,
+            "x": 2,
+            "y": 4.5,
+        },
+        {
+            "id": "Report10",
+            "title": "Report 10",
+            "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+            ],
+            "type": "bar",
+            "width": 4,
+            "height": 3,
+            "x": 4,
+            "y": 2.5,
+        },
+        {
+            "id": "Report11",
+            "title": "Report 11",
+            "labels": ['Red'
+            ],
+            "type": "text",
+            "width": 1,
+            "height": 2,
+            "x": 8,
+            "y": 2.5,
+        },
+        {
+            "id": "Report12",
+            "title": "Report 12",
+            "labels": ['Red'
+            ],
+            "type": "text",
+            "width": 1,
+            "height": 2,
+            "x": 9,
+            "y": 2.5,
+        },
+        {
+            "id": "Report14",
+            "title": "Report 14",
+            "labels": ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'
+            ],
+            "type": "line",
+            "width": 2,
+            "height": 1,
+            "x": 8,
+            "y": 4.5,
+        }
+    ]
+};
