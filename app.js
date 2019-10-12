@@ -4,7 +4,8 @@ var cellsize = (maxwidth - 5) / properties.settings.grid.maxx;
 drawSkaliton()
 
 function init() {
-
+    var ts = "2019-10-11T09:24:17"
+    console.log(timeSince(new Date(ts)));
 }
 function drawSkaliton() {
     var htmltxt = ""
@@ -12,9 +13,9 @@ function drawSkaliton() {
         if (element.type == "title") {
             htmltxt += "<div id=\"" + element.id + "\" class=\"title\"></div >"
         } else if (element.type == "text") {
-            htmltxt += "<div class=\"chartBox\"><div class=\"chartTitle\">" + element.title + "</div><dev id=\"" + element.id + "\" class=\"textData\"></div></div >"
+            htmltxt += "<div class=\"chartBox\"><div class=\"chartTitle\"><p class = charttitletext>" + element.title + "</p><p class = charttimesince  id=\"" + element.id + "_ts" + "\"></p></div><dev id=\"" + element.id + "\" class=\"textData\"></div></div >"
         } else {
-            htmltxt += "<div class=\"chartBox\"><div class=\"chartTitle\">" + element.title + "</div><div><canvas id=\"" + element.id + "\" class=\"chart\"></canvas></div></div >"
+            htmltxt += "<div class=\"chartBox\"><div class=\"chartTitle\"><p class = charttitletext>" + element.title + "</p><p class = charttimesince  id=\"" + element.id + "_ts" + "\"></p></div><div><canvas id=\"" + element.id + "\" class=\"chart\"></canvas></div></div >"
         }
 
     });
@@ -23,9 +24,13 @@ function drawSkaliton() {
         if (element.type == "title") {
             drawTitle(element, element.title)
         } else if (element.type == "text") {
-            drawText(element, finddata(element.id))
+            dataset = finddata(element.id);
+            drawText(element, dataset.data)
+            fillTimeSince(element.id, dataset.timestamp)
         } else {
-            drawChart(element, finddata(element.id))
+            dataset = finddata(element.id);
+            drawChart(element, dataset.data)
+            fillTimeSince(element.id, dataset.timestamp)
         }
     });
 }
@@ -34,8 +39,8 @@ function finddata(id) {
     var data;
     reportData.forEach(element => {
         if (element.id == id) {
-            console.log(element.data)
-            data = element.data
+            // console.log(element.data)
+            data = element
             return
         }
     });
@@ -45,32 +50,40 @@ function finddata(id) {
 function drawText(layoutData, chartData) {
     var ctx = document.getElementById(layoutData.id);
     ctx.innerHTML = chartData;
-    //    ctx.innerHTML = "<div class = \"textData\">" + chartData + " </div>";
-    ctx.style.height = (layoutData.height * cellsize) - 30 - 20 + "px";
+    ctx.style.height = (layoutData.height * cellsize) - (cellsize * 0.1) - 20 + "px";
     ctx.style.width = (layoutData.width * cellsize) - 20 + "px";
-    ctx.parentNode.style.top = layoutData.y * cellsize + "px";
-    ctx.parentNode.style.left = layoutData.x * cellsize + "px";
+    ctx.parentNode.style.top = layoutData.y * cellsize + 10 + "px";
+    ctx.parentNode.style.left = layoutData.x * cellsize + 10 + "px";
+
+}
+function fillTimeSince(id, time) {
+    //Fill time since
+    document.getElementById(id + "_ts").innerHTML = timeSince(new Date(time));
 }
 
 function drawTitle(layoutData, chartData) {
-    console.log(layoutData.id)
+    //console.log(layoutData.id)
     var ctx = document.getElementById(layoutData.id);
-    ctx.innerHTML = "<div class = \"titletext\">" + layoutData.title + "</div>";
+    ctx.innerHTML = "<div class = \"titletext\">" + layoutData.title + " </div><div class=\"time\" id=\"time\"></div>";
     ctx.style.height = (layoutData.height * cellsize) - 10 + "px";
     ctx.style.width = (layoutData.width * cellsize) - 10 + "px";
-    ctx.style.top = layoutData.y * cellsize + "px";
-    ctx.style.left = layoutData.x * cellsize + "px";
-}
+    ctx.style.top = layoutData.y * cellsize + 10 + "px";
+    ctx.style.left = layoutData.x * cellsize + 10 + "px";
 
+}
+// TODO: time since -Done
+// Configurable Charts 
+// Gauge 
+// Numbers
 function drawChart(layoutData, chartData) {
     var ctx = document.getElementById(layoutData.id).getContext('2d');
     //Margin correction - 5 + 5
     //Padding correction - 5 + 5 
-    //Title higtht corrections - 30 
-    ctx.canvas.parentNode.style.height = (layoutData.height * cellsize) - 30 - 20 + "px";
+    //Title hight corrections - 30 
+    ctx.canvas.parentNode.style.height = (layoutData.height * cellsize) - (cellsize * 0.1) - 20 + "px";
     ctx.canvas.parentNode.style.width = (layoutData.width * cellsize) - 20 + "px";
-    ctx.canvas.parentNode.parentNode.style.top = layoutData.y * cellsize + "px"
-    ctx.canvas.parentNode.parentNode.style.left = layoutData.x * cellsize + "px";
+    ctx.canvas.parentNode.parentNode.style.top = layoutData.y * cellsize + 10 + "px"
+    ctx.canvas.parentNode.parentNode.style.left = layoutData.x * cellsize + 10 + "px";
     var myChart = new Chart(ctx, {
         type: layoutData.type,
         data: {
@@ -119,3 +132,45 @@ function drawChart(layoutData, chartData) {
 
 }
 
+function timeSince(date) {
+
+    var seconds = Math.floor((new Date() - date) / 1000);
+
+    var interval = Math.floor(seconds / 31536000);
+
+    if (interval > 1) {
+        return interval + " years ago";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+        return interval + " months ago";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+        return interval + " days ago";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+        return interval + " hours ago";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+        return interval + " minutes ago";
+    }
+    return Math.floor(seconds) + " seconds ago";
+}
+
+var span = document.getElementById('time');
+
+function time() {
+    var d = new Date();
+    var s = d.getSeconds();
+    var m = d.getMinutes();
+    var h = d.getHours();
+    var date = d.getDate();
+    var month = d.getMonth() + 1;
+    var year = d.getFullYear();
+    span.textContent = h + ":" + m + ":" + s + " " + date + "/" + month + "/" + year;
+}
+
+setInterval(time, 1000);
